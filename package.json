@@ -1,0 +1,68 @@
+{
+  "name": "openclaw-linkup-plugin",
+  "version": "1.0.0",
+  "description": "OpenClaw native web_search provider plugin for Linkup.",
+  "license": "MIT",
+  "type": "module",
+  "files": [
+    "dist",
+    "openclaw.plugin.json",
+    "README.md"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shauryajain21/openclaw-plugin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shauryajain21/openclaw-plugin/issues"
+  },
+  "homepage": "https://github.com/shauryajain21/openclaw-plugin#readme",
+  "keywords": [
+    "openclaw",
+    "openclaw-plugin",
+    "linkup",
+    "web-search"
+  ],
+  "engines": {
+    "node": ">=24.16.0"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "prepack": "npm run build"
+  },
+  "peerDependencies": {
+    "openclaw": ">=2026.9.6"
+  },
+  "devDependencies": {
+    "@types/node": "^24.5.2",
+    "openclaw": "2026.9.6",
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
+  },
+  "openclaw": {
+    "extensions": [
+      "./dist/index.js"
+    ],
+    "install": {
+      "npmSpec": "openclaw-linkup-plugin",
+      "defaultChoice": "npm",
+      "minHostVersion": ">=2026.9.6"
+    },
+    "compat": {
+      "pluginApi": ">=2026.9.6"
+    },
+    "build": {
+      "openclawVersion": "2026.9.6",
+      "bundledDist": false
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "id": "linkup",
+  "categories": [
+    "web"
+  ],
+  "activation": {
+    "onStartup": false
+  },
+  "setup": {
+    "providers": [
+      {
+        "id": "linkup",
+        "envVars": [
+          "LINKUP_API_KEY"
+        ]
+      }
+    ]
+  },
+  "uiHints": {
+    "webSearch.apiKey": {
+      "label": "Linkup API Key",
+      "help": "Linkup Search API key (fallback: LINKUP_API_KEY env var).",
+      "sensitive": true,
+      "placeholder": "\u2026"
+    },
+    "webSearch.baseUrl": {
+      "label": "Linkup Search Base URL",
+      "help": "Optional Linkup API base URL override. OpenClaw appends /v1/search when the URL does not already end with /search."
+    }
+  },
+  "contracts": {
+    "webSearchProviders": [
+      "linkup"
+    ]
+  },
+  "configGroups": [
+    {
+      "id": "web-search",
+      "title": "Web search",
+      "order": 10,
+      "properties": [
+        "webSearch"
+      ]
+    }
+  ],
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "webSearch": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "apiKey": {
+            "type": [
+              "string",
+              "object"
+            ]
+          },
+          "baseUrl": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
